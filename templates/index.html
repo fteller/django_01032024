@@ -1,10 +1,7 @@
-<!doctype html>
-<html lang="en">
-{% include "includes/head.html" %} 
-<body>
-{% include "includes/navbar.html" with title='Home' %} 
+{% extends "layout.html" %}
 
-<div class="container">
+{% block content %}
+
     <span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam blanditiis deleniti dignissimos error excepturi expedita fugiat illum impedit incidunt, magnam minus nulla obcaecati perspiciatis possimus quam quasi quisquam saepe.</span><span>Dolorem iste maiores, numquam quia quibusdam quos saepe voluptatem? Ad asperiores cum cupiditate delectus dolor doloribus labore, magni nam nemo quod, saepe similique soluta? Dicta doloremque ex nesciunt repudiandae sunt.</span><span>Accusantium dolorum facere iure molestiae nemo, nisi sequi vel veniam. Commodi consectetur consequuntur debitis, dolor doloremque earum et fugiat molestiae molestias nostrum officia optio porro recusandae, soluta temporibus ut voluptates.</span><span>Ad adipisci atque aut cupiditate deserunt fugit impedit magnam, maiores perferendis possimus, praesentium quis, quisquam reiciendis saepe sequi tempore unde ut vel? Et non saepe veniam? Minus ratione sit tenetur.</span><span>Culpa, cupiditate delectus, explicabo facilis fugit laudantium minus natus, quia quisquam quos ullam voluptatem voluptates! Enim explicabo laboriosam laudantium necessitatibus temporibus ut vitae? Consequuntur, ea ipsa maiores molestiae nihil provident!</span></span>
     <div class="card" style="width: 18rem;">
         <img src="https://fakeimg.pl/600x400" class="card-img-top" alt="...">
@@ -15,11 +12,10 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-</div>
+{% endblock %}
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+{% block extra_scripts %}
+    <script>
+       console.log('Hello World')
+    </script>
+{% endblock %}
