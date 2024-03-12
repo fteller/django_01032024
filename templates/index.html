@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="myHeader">CV App</h1>
+        </div>
+
+    </div>
 
     <span><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam blanditiis deleniti dignissimos error excepturi expedita fugiat illum impedit incidunt, magnam minus nulla obcaecati perspiciatis possimus quam quasi quisquam saepe.</span><span>Dolorem iste maiores, numquam quia quibusdam quos saepe voluptatem? Ad asperiores cum cupiditate delectus dolor doloribus labore, magni nam nemo quod, saepe similique soluta? Dicta doloremque ex nesciunt repudiandae sunt.</span><span>Accusantium dolorum facere iure molestiae nemo, nisi sequi vel veniam. Commodi consectetur consequuntur debitis, dolor doloremque earum et fugiat molestiae molestias nostrum officia optio porro recusandae, soluta temporibus ut voluptates.</span><span>Ad adipisci atque aut cupiditate deserunt fugit impedit magnam, maiores perferendis possimus, praesentium quis, quisquam reiciendis saepe sequi tempore unde ut vel? Et non saepe veniam? Minus ratione sit tenetur.</span><span>Culpa, cupiditate delectus, explicabo facilis fugit laudantium minus natus, quia quisquam quos ullam voluptatem voluptates! Enim explicabo laboriosam laudantium necessitatibus temporibus ut vitae? Consequuntur, ea ipsa maiores molestiae nihil provident!</span></span>
     <div class="card" style="width: 18rem;">
-        <img src="https://fakeimg.pl/600x400" class="card-img-top" alt="...">
+        <img src="{% get_media_prefix %}me.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
@@ -16,6 +23,6 @@
 
 {% block extra_scripts %}
     <script>
-       console.log('Hello World')
+        console.log('Hello World')
     </script>
 {% endblock %}
