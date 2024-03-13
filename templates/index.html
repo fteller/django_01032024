@@ -1,13 +1,7 @@
+{% extends 'layout.html' %}
 {%  load static %}
 
-<!doctype html>
-<html lang="en">
-{% include 'includes/head.html' %}
-    <body>
-        
-        <!--================Header Menu Area =================-->
-        {% include 'includes/navbar.html' %}
-        <!--================Header Menu Area =================-->
+{% block home_banner_area %}
         
         <!--================Home Banner Area =================-->
         <section class="home_banner_area">
@@ -43,7 +37,9 @@
             </div>
         </section>
         <!--================End Home Banner Area =================-->
-        
+ {% endblock %}  
+
+ {% block content %}
         <!--================Welcome Area =================-->
         <section class="welcome_area p_120">
         	<div class="container">
@@ -407,10 +403,4 @@
         	</div>
         </section>
         <!--================End Testimonials Area =================-->
-        
-        <!--================Footer Area =================-->
-        {% include 'includes/footer.html' %}
-        <!--================End Footer Area =================-->
-
-    </body>
-</html>
+ {% endblock %} 
