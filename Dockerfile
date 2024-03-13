@@ -17,6 +17,9 @@ RUN pip install -r /tmp/requirements.txt
 COPY . /srv/app
 WORKDIR /srv/app
 
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
 # Run migrations
 RUN python manage.py migrate
 
