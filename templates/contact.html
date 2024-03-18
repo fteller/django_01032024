@@ -11,8 +11,8 @@
                     <div class="banner_content text-center">
                         <h2>Contact Us</h2>
                         <div class="page_link">
-                            <a href="index.html">Home</a>
-                            <a href="contact.html">Contact Us</a>
+                            <a href="{% url 'index' %}">Home</a>
+                            <a href="{% url 'contact' %}">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -27,14 +27,6 @@
     <!--================Contact Area =================-->
     <section class="contact_area p_120">
         <div class="container">
-            <div id="mapBox" class="mapBox"
-                 data-lat="40.701083"
-                 data-lon="-74.1522848"
-                 data-zoom="13"
-                 data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
-                 data-mlat="40.701083"
-                 data-mlon="-74.1522848">
-            </div>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="contact_info">
@@ -56,8 +48,8 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                          novalidate="novalidate">
+                    <form class="row contact_form" action="{% url 'contact_form' %}" method="post" id="contactForm" novalidate="novalidate">
+                        {% csrf_token %}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" name="name"
@@ -88,18 +80,40 @@
     </section>
     <!--================Contact Area =================-->
 
-    <!--================Footer Area =================-->
-    {% include 'includes/footer.html' %}
-    <!--================End Footer Area =================-->
-
     <!--================Contact Success and Error message Area =================-->
-    {% include 'includes/success_error.html' %}
+    <div id="success" class="modal modal-message fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        <h2>Thank you</h2>
+                        <p>Your message is successfully sent...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals error -->
+
+        <div id="error" class="modal modal-message fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        <h2>Sorry !</h2>
+                        <p> Something went wrong </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!--================End Contact Success and Error message Area =================-->
 {% endblock %}
 
 {% block extra_scripts %}
-
-    {% include 'includes/scripts.html' %}
     <!-- contact js -->
     <script src="{% static 'js/jquery.form.js' %}"></script>
     <script src="{% static 'js/jquery.validate.min.js' %}"></script>
