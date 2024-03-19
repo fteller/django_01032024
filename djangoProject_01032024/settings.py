@@ -18,7 +18,8 @@ environ.Env.read_env()
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+#DEBUG = env('DEBUG')
+DEBUG = env.bool("DEBUG", True)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!

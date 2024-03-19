@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - djangoProject_01032024/docker.env
+      - djangoProject_01032024/.env
     volumes:
       - .:/srv/app
     ports:
