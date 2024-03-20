@@ -24,9 +24,9 @@
 										<li><a href="javascript:void(0)"><i class="lnr lnr-home"></i> Piri Reis Üniversitesi Deniz Kampüsü Tuzla / İstanbul</a></li>
 									</ul>
 									<ul class="list personal_social">
-										<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="https://www.linkedin.com/in/erkan-kiyak-b0b33839/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        {% for social_m in social_media %}
+										    <li><a href="{{ social_m.link }}" target="_blank">{{ social_m.icon|safe }}</a></li>
+										{% endfor %}
 									</ul>
 								</div>
 							</div>
