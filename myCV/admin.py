@@ -26,3 +26,10 @@ class SkillAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_editable = ['order', 'name', 'percentage']
     ordering = ["name"]
+
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ['id', 'company_name', 'job_title', 'job_location', 'start_date', 'end_date']
+    search_fields = ['company_name', 'job_title', 'job_location', 'start_date', 'end_date']
+    list_editable = ['company_name', 'job_title', 'job_location', 'start_date', 'end_date']
+    ordering = ["-start_date"]

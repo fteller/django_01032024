@@ -53,3 +53,18 @@ class Skill(AbstractModel):
         verbose_name = 'Skill'
         verbose_name_plural = 'Skills'
         ordering = ('order',)
+
+class Experience(AbstractModel):
+    company_name = models.CharField(max_length=255, default='', verbose_name="Company Name", blank=True, help_text="")
+    job_title = models.CharField(max_length=255, default='', verbose_name="Job Title", blank=True, help_text="")
+    job_location = models.CharField(max_length=255, default='', verbose_name="Job Location", blank=True, help_text="")
+    start_date = models.DateField(verbose_name="Start Date", help_text="")
+    end_date = models.DateField(default=None, verbose_name="End Date", null=True, blank=True, help_text="")
+
+    def __str__(self):
+        return f'Experience: {self.company_name} - {self.job_title}'
+
+    class Meta:
+        verbose_name = 'Experience'
+        verbose_name_plural = 'Experiences'
+        ordering = ('-start_date',)
