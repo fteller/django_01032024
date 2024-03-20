@@ -66,3 +66,14 @@ class SocialMediaAdmin(admin.ModelAdmin):
 
     class Meta:
         model = SocialMedia
+
+
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'slug', 'button_text', 'file', 'created_date', 'updated_date']
+    search_fields = ['order', 'slug', 'button_text']
+    list_editable = ['order', 'slug', 'button_text', 'file']
+    ordering = ["order"]
+
+    class Meta:
+        model = Document

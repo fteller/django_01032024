@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialMedia
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import GeneralSetting, ImageSetting, Skill, Experience, Education, SocialMedia, Document
 
 
 # Create your views here.
@@ -16,12 +16,12 @@ def index(request):
     about_myself_welcome = GeneralSetting.objects.get(name='about_myself_welcome').parameter
     about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
 
-    #images
+    # images
     header_logo = ImageSetting.objects.get(name='header_logo').file
     home_banner_image = ImageSetting.objects.get(name='home_banner_image').file
     site_favicon = ImageSetting.objects.get(name='site_favicon').file
 
-    #Skills
+    # Skills
     skills = Skill.objects.all().order_by('-percentage')
 
     # Experiences
@@ -30,8 +30,11 @@ def index(request):
     # Educations
     educations = Education.objects.all().order_by('-start_date')
 
-    #Social Media
+    # Social Media
     social_media = SocialMedia.objects.all().order_by('order')
+
+    # Documents
+    documents = Document.objects.all()
 
     context = {
         'site_title': site_title,
@@ -50,5 +53,12 @@ def index(request):
         'experiences': experiences,
         'educations': educations,
         'social_media': social_media,
+        'documents': documents,
     }
     return render(request, 'index.html', context=context)
+
+
+def redirect_urls(request, slug):
+    doc = get_object_or_404(Document,slug=slug)
+    return redirect(doc.file.url)
+
