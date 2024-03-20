@@ -33,3 +33,10 @@ class ExperienceAdmin(admin.ModelAdmin):
     search_fields = ['company_name', 'job_title', 'job_location', 'start_date', 'end_date']
     list_editable = ['company_name', 'job_title', 'job_location', 'start_date', 'end_date']
     ordering = ["-start_date"]
+
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'school_name', 'school_location', 'graduation_type', 'start_date', 'end_date']
+    search_fields = ['school_name', 'school_location', 'graduation_type', 'start_date', 'end_date']
+    list_editable = ['school_name', 'school_location', 'graduation_type', 'start_date', 'end_date']
+    ordering = ["-start_date"]
