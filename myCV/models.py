@@ -43,5 +43,13 @@ class ImageSetting(AbstractModel):
 
 class Skill(AbstractModel):
     order = models.IntegerField(default=0, verbose_name="order", help_text="")
-    name = models.CharField(max_length=255, default='', blank=True, verbose_name="percentage", help_text="")
+    name = models.CharField(max_length=255, default='', blank=True, verbose_name="name", help_text="")
     percentage = models.IntegerField(default=0, blank=True, verbose_name="percentage", validators=[MaxValueValidator(100), MinValueValidator(0)])
+
+    def __str__(self):
+        return f'Skill: {self.name}'
+
+    class Meta:
+        verbose_name = 'Skill'
+        verbose_name_plural = 'Skills'
+        ordering = ('order',)
