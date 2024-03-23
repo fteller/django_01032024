@@ -16,6 +16,8 @@ def contact_form(request):
 
             Message.objects.create(name=name, email=email, subject=subject, message=message)
 
+            contact_form.send_mail()
+
             success = True
             message_sent = 'Contact form sent successfully'
         else:
